@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - ₹{{ product.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% if products %}
+    <p>Total Products: {{ products|length }}</p>
+{% else %}
+    <p>No products available.</p>
+{% endif %}
+<script>
+    // You can add JavaScript here if needed
