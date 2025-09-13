@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ movie.title }}{% endblock %}
+{% block content %}
+    <h2>{{ movie.title }}</h2>
+    <p><strong>Director:</strong> {{ movie.director }}</p>
+    <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
+    <p><strong>Status:</strong>
+        {% if movie.available %}
+            Available
+        {% else %}
+            Not Available
+        {% endif %}
+    </p>
+    <a href="{% url 'movies_list' %}">Back to Movies</a>
+{% endblock %}

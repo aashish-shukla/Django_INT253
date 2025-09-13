@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Movie Collection{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Movie Collection System</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a> |
+            <a href="{% url 'movies_list' %}">Movies</a>
+        </nav>
+    </header>
+    <hr>
+    <div style="display:flex; align-items:flex-start;">
+        <aside>
+            {% include 'banner.html' %}
+        </aside>
+        <main style="flex:1;">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <hr>
+    <footer>
+        &copy; 2025 Movie Collection
+    </footer>
+</body>
+</html>

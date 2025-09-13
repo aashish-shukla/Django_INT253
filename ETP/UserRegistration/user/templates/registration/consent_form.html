@@ -1,0 +1,43 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Step {{ step }} of 4: Terms and Conditions</h3>
+        <div class="progress mt-2">
+            <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <div class="border p-3 mb-3" style="height: 200px; overflow-y: scroll;">
+                    <h5>Terms and Conditions</h5>
+                    <p>By registering, you agree to our terms of service and privacy policy. This includes:</p>
+                    <ul>
+                        <li>Providing accurate information</li>
+                        <li>Keeping your account secure</li>
+                        <li>Respecting other users</li>
+                        <li>Following community guidelines</li>
+                    </ul>
+                </div>
+                
+                <div class="form-check">
+                    {{ form.terms_accepted }}
+                    <label class="form-check-label">
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+                {% if form.terms_accepted.errors %}
+                    <div class="text-danger">{{ form.terms_accepted.errors }}</div>
+                {% endif %}
+            </div>
+
+            <a href="{% url 'registration_step3' %}" class="btn btn-secondary">Previous</a>
+            <button type="submit" class="btn btn-success">Complete Registration</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
